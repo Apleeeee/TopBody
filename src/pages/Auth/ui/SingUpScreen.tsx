@@ -2,27 +2,19 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 import { Button } from "shared/ui";
-import { navigate } from "shared/lib/navigationRef";
-import SCREENS from "shared/lib/screen";
 
-const SingInScreen = () => {
+const SingUpScreen = () => {
   return (
     <View style={styles.container}>
       <Button
+        style={styles.button}
         icon="camera"
         mode="outlined"
-        onPress={() => navigate(SCREENS.SingUp)}
+        onPress={() => console.log("Pressed")}
       >
-        SingUp
+        Ba Dum Tss
       </Button>
-      <Button
-        icon="camera"
-        mode="outlined"
-        onPress={() => navigate(SCREENS.ForgotPassword)}
-      >
-        ForgotPassword
-      </Button>
-      <Text>SingIp</Text>
+      <Text>SingUp</Text>
     </View>
   );
 };
@@ -34,6 +26,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  button: {
+    paddingTop: 20,
+  },
 });
 
-export default SingInScreen;
+export default SingUpScreen;
