@@ -14,7 +14,6 @@ export function navigate<RouteName extends keyof RootStackParamList>(
       : [screen: RouteName, params: RootStackParamList[RouteName]]
     : never
 ): void {
-  console.log("Попал", navigationRef.isReady());
   if (navigationRef.isReady()) {
     navigationRef.navigate(...args);
   }

@@ -11,12 +11,7 @@ const Stack = createNativeStackNavigator();
 
 const MainStack = () => {
   return (
-    <NavigationContainer
-      onReady={() => {
-        console.log("ready");
-      }}
-      ref={navigationRef}
-    >
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen name={SCREENS.SingIn} component={SingInScreen} />
         <Stack.Screen name={SCREENS.SingUp} component={SingUpScreen} />
