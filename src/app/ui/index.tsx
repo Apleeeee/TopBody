@@ -1,21 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+
+import { PaperProvider } from "shared/ui";
+import SingInScreen from "pages/Auth/ui/SignInScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>TopBody</Text>
+    <PaperProvider>
+      <SingInScreen></SingInScreen>
       <StatusBar style="auto" />
-    </View>
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
