@@ -1,9 +1,16 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { TextInput, Checkbox } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
 
-import { Button, Text } from "shared/ui";
+import {
+  Button,
+  Text,
+  useTheme,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  TextInput,
+  Checkbox,
+  SafeAreaView,
+} from "shared/ui";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 
@@ -13,15 +20,20 @@ const SignUpScreen = () => {
   const [textConfirmPasswordSingUp, setTextConfirmPasswordSingUp] =
     React.useState("");
   const [checked, setChecked] = React.useState(false);
+  const theme = useTheme();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: theme.colors.background }]}
+    >
       <Text variant="displayLarge" style={styles.title}>
         TopBody
       </Text>
-      <Text variant="headlineSmall">Join</Text>
-      <View style={styles.row}>
-        <Text>Already a member?</Text>
-        <Button onPress={() => navigate(SCREENS.SignIn)}>Sign In</Button>
+      <View>
+        <Text variant="headlineSmall">Join</Text>
+        <View style={styles.row}>
+          <Text>Already a member?</Text>
+          <Button onPress={() => navigate(SCREENS.SignIn)}>Sign In</Button>
+        </View>
       </View>
       <View style={styles.input}>
         <TextInput
@@ -64,7 +76,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    backgroundColor: "#FFFBFF",
     justifyContent: "space-between",
   },
   title: {
@@ -77,7 +88,7 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingBottom: 10,
-    gap: 20,
+    gap: 10,
   },
   touchableOpacity: {
     flexDirection: "row",
