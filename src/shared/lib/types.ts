@@ -1,7 +1,7 @@
 import SCREENS from "./screen";
 
 export type RootStackParamList = {
-  [SCREENS.SingUp]: undefined;
-  [SCREENS.SingIn]: undefined;
+  [SCREENS.SignUp]: undefined;
+  [SCREENS.SignIn]: undefined;
   [SCREENS.ForgotPassword]: undefined;
 };

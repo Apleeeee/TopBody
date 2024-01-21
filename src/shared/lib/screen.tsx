@@ -1,6 +1,6 @@
 enum SCREENS {
-  SingIn = "SingIn",
-  SingUp = "SingUp",
+  SignIn = "SignIn",
+  SignUp = "SignUp",
   ForgotPassword = "ForgotPassword",
 }
 

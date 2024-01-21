@@ -1,33 +1,57 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import { Button } from "shared/ui";
+import {
+  TextInput,
+  Button,
+  Text,
+  useTheme,
+  SafeAreaView,
+  StyleSheet,
+  View,
+} from "shared/ui";
+import { navigate } from "shared/lib/navigationRef";
+import SCREENS from "shared/lib/screen";
 
 const ForgotPasswordScreen = () => {
+  const [textEmailForgot, setTextEmailForgot] = React.useState("");
+  const theme = useTheme();
   return (
-    <View style={styles.container}>
-      <Button
-        style={styles.button}
-        icon="camera"
-        mode="outlined"
-        onPress={() => console.log("Pressed")}
-      >
-        Press me
-      </Button>
-      <Text>ForgotPassword</Text>
-    </View>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: theme.colors.background }]}
+    >
+      <Text variant="displayLarge" style={styles.title}>
+        TopBody
+      </Text>
+      <View>
+        <Text variant="headlineLarge">Forgot your password?</Text>
+        <Text variant="labelLarge">
+          Don’t worry, it happens to the best of us.
+        </Text>
+      </View>
+      <View style={styles.buttonSendResetLink}>
+        <TextInput
+          label="Email or username"
+          value={textEmailForgot}
+          onChangeText={(text) => setTextEmailForgot(text)}
+        />
+        <Button mode="contained">Send reset link</Button>
+      </View>
+      <Button onPress={() => navigate(SCREENS.SignIn)}>Back to sign in</Button>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 15,
+    justifyContent: "space-between",
   },
-  button: {
-    paddingTop: 20,
+  title: {
+    textAlign: "center",
+  },
+  buttonSendResetLink: {
+    gap: 10,
   },
 });
 
