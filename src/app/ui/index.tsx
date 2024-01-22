@@ -41,7 +41,7 @@ const Wraper = () => {
         >
           <MainStack />
         </NavigationContainer>
-        <StatusBar style="auto" />
+        <StatusBar style={currentTheme === "dark" ? "light" : "dark"} />
       </PaperProvider>
     </SafeAreaProvider>
   );
