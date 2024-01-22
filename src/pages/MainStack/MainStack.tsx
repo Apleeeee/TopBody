@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { IconButton } from "react-native-paper";
 
 import SignUpScreen from "pages/Auth/ui/SignUpScreen";
 import ForgotPasswordScreen from "pages/Auth/ui/ForgotPasswordScreen";
@@ -7,6 +6,7 @@ import SignInScreen from "pages/Auth/ui/SignInScreen";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 import SettingsScreen from "pages/Settings/ui/SettingsScreen";
+import { IconButton } from "shared/ui";
 
 const Stack = createNativeStackNavigator();
 
