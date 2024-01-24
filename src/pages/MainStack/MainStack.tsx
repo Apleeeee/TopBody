@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 import SignUpScreen from "pages/Auth/ui/SignUpScreen";
 import ForgotPasswordScreen from "pages/Auth/ui/ForgotPasswordScreen";
@@ -13,6 +13,8 @@ import { RootStackParamList } from "shared/lib/types";
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const MainStack = () => {
+  const { t } = useTranslation();
+
   return (
     <Stack.Navigator
       screenOptions={({ route: { name } }) => ({
