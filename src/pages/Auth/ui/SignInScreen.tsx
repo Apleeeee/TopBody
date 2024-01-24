@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   TextInput,
@@ -16,6 +17,7 @@ const SignInScreen = () => {
   const [textEmail, setTextEmail] = React.useState("");
   const [textPassword, setTextPassword] = React.useState("");
   const theme = useTheme();
+  const { t } = useTranslation();
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -26,7 +28,7 @@ const SignInScreen = () => {
       <View>
         <Text variant="headlineSmall">Sign in</Text>
         <View style={styles.row}>
-          <Text>Not a member?</Text>
+          <Text>{t("Not a member?")}</Text>
           <Button onPress={() => navigate(SCREENS.SignUp)}>Join now</Button>
         </View>
       </View>

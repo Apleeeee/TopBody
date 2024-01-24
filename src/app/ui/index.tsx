@@ -12,8 +12,10 @@ import { Provider, useSelector } from "react-redux";
 import {
   NavigationContainer,
   DefaultTheme,
-  DarkTheme as DefaultDarckTheme,
+  DarkTheme as DefaultDarkTheme,
 } from "@react-navigation/native";
+
+import {} from "../lib/i18n";
 
 import MainStack from "pages/MainStack/MainStack";
 import { store } from "app/model";
@@ -21,7 +23,7 @@ import { selectCurrentTheme } from "entities/Settings/model";
 import { navigationRef } from "shared/lib/navigationRef";
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
   reactNavigationLight: DefaultTheme,
-  reactNavigationDark: DefaultDarckTheme,
+  reactNavigationDark: DefaultDarkTheme,
 });
 const Wraper = () => {
   const currentTheme = useSelector(selectCurrentTheme);
