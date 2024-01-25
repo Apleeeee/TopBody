@@ -23,8 +23,11 @@ export default {
     "Don’t worry, it happens to the best of us.",
   "Send reset link": "Send reset link",
   "Back to sign in": "Back to sign in",
+  Search: "Search",
+  HomE: "Home",
   [SCREENS.SignIn]: "Sign In",
   [SCREENS.SignUp]: "Sign Up",
   [SCREENS.ForgotPassword]: "Forgot Password",
   [SCREENS.Settings]: "Settings",
+  [SCREENS.Home]: "Home",
 } as const;

@@ -5,4 +5,5 @@ export type RootStackParamList = {
   [SCREENS.SignIn]: undefined;
   [SCREENS.ForgotPassword]: undefined;
   [SCREENS.Settings]: undefined;
+  [SCREENS.Home]: undefined;
 };

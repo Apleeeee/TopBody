@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import SignUpScreen from "pages/Auth/ui/SignUpScreen";
 import ForgotPasswordScreen from "pages/Auth/ui/ForgotPasswordScreen";
 import SignInScreen from "pages/Auth/ui/SignInScreen";
+import HomeScreen from "pages/Auth/ui/HomeScreen";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 import SettingsScreen from "pages/Settings/ui/SettingsScreen";
@@ -27,6 +28,7 @@ const MainStack = () => {
         ),
       })}
     >
+      <Stack.Screen name={SCREENS.Home} component={HomeScreen} />
       <Stack.Screen name={SCREENS.SignIn} component={SignInScreen} />
       <Stack.Screen name={SCREENS.SignUp} component={SignUpScreen} />
       <Stack.Screen

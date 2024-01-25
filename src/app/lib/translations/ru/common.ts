@@ -23,8 +23,11 @@ export default {
     "Не волнуйтесь, такое случается с лучшими из нас.",
   "Send reset link": "Отправить ссылку для сброса",
   "Back to sign in": "Вернуться для входа в систему",
+  Search: "Поиск",
+  HomE: "Главная",
   [SCREENS.SignIn]: "Вход",
   [SCREENS.SignUp]: "Регистрация",
   [SCREENS.ForgotPassword]: "Забыли пароль",
   [SCREENS.Settings]: "Настройки",
+  [SCREENS.Home]: "Главная",
 } as const;

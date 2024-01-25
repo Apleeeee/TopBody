@@ -47,7 +47,9 @@ const SignInScreen = () => {
         />
       </View>
       <View style={styles.buttonSignIn}>
-        <Button mode="contained">{t("Sign In")}</Button>
+        <Button mode="contained" onPress={() => navigate(SCREENS.Home)}>
+          {t("Sign In")}
+        </Button>
         <Button onPress={() => navigate(SCREENS.ForgotPassword)}>
           {t("Forgot your password?")}
         </Button>
