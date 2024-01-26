@@ -10,7 +10,7 @@ import {
   View,
 } from "shared/ui";
 
-const HomeScreen = () => {
+const MainScreen = () => {
   const theme = useTheme();
   const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -20,7 +20,7 @@ const HomeScreen = () => {
     >
       <View>
         <Text variant="displayLarge" style={styles.title}>
-          {t("HomE")}
+          {t("Home")}
         </Text>
       </View>
       <Searchbar
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default MainScreen;

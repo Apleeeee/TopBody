@@ -3,7 +3,7 @@ enum SCREENS {
   SignUp = "SignUp",
   ForgotPassword = "ForgotPassword",
   Settings = "Settings",
-  Home = "Home",
+  Main = "Main",
 }
 
 export default SCREENS;

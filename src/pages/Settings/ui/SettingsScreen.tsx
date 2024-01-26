@@ -54,7 +54,13 @@ const SettingsScreen = () => {
           <RadioButton.Android value="en" />
         </View>
       </RadioButton.Group>
-      <Switch value={currentTheme === "dark"} onValueChange={onToggleSwitch} />
+      <View style={styles.button}>
+        <Switch
+          value={currentTheme === "dark"}
+          onValueChange={onToggleSwitch}
+        />
+        <Text variant="headlineSmall">{t("change theme")}</Text>
+      </View>
     </SafeAreaView>
   );
 };
@@ -64,6 +70,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 15,
     justifyContent: "space-between",
+  },
+  button: {
+    flexDirection: "row",
   },
 });
 export default SettingsScreen;
