@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import SignUpScreen from "pages/Auth/ui/SignUpScreen";
 import ForgotPasswordScreen from "pages/Auth/ui/ForgotPasswordScreen";
 import SignInScreen from "pages/Auth/ui/SignInScreen";
-import MainScreen from "pages/HomePages/iu/MainScreen";
+import MainScreen from "pages/MainPages/iu/MainScreen";
+import ProfileStatisticsScreen from "pages/MainPages/iu/ProfileStatistics";
+import MyProfileScreen from "pages/MainPages/iu/MyProfile";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 import SettingsScreen from "pages/Settings/ui/SettingsScreen";
@@ -28,7 +30,6 @@ const MainStack = () => {
         ),
       })}
     >
-      <Stack.Screen name={SCREENS.Main} component={MainScreen} />
       <Stack.Screen name={SCREENS.SignIn} component={SignInScreen} />
       <Stack.Screen name={SCREENS.SignUp} component={SignUpScreen} />
       <Stack.Screen
@@ -36,6 +37,12 @@ const MainStack = () => {
         component={ForgotPasswordScreen}
       />
       <Stack.Screen name={SCREENS.Settings} component={SettingsScreen} />
+      <Stack.Screen name={SCREENS.Main} component={MainScreen} />
+      <Stack.Screen
+        name={SCREENS.ProfileStatistics}
+        component={ProfileStatisticsScreen}
+      />
+      <Stack.Screen name={SCREENS.MyProfile} component={MyProfileScreen} />
     </Stack.Navigator>
   );
 };

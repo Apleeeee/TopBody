@@ -12,8 +12,11 @@ import {
 
 const MainScreen = () => {
   const theme = useTheme();
+
   const { t } = useTranslation();
+
   const [searchQuery, setSearchQuery] = React.useState("");
+
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}

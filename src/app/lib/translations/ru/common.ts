@@ -7,10 +7,13 @@ export default {
   [SCREENS.ForgotPassword]: "Забыли пароль",
   [SCREENS.Settings]: "Настройки",
   [SCREENS.Main]: "Главная",
+  [SCREENS.ProfileStatistics]: "ProfileStatistics",
+  [SCREENS.MyProfile]: "Профиль",
 
-  /*Переводы*/
+  /*Страница настройки*/
   Russia: "Русский",
   English: "Английский",
+  "change theme": "смена темы",
 
   /*Страница входа*/
   "Sign in": "Войти",
@@ -38,10 +41,9 @@ export default {
   "Send reset link": "Отправить ссылку для сброса",
   "Back to sign in": "Вернуться для входа в систему",
 
-  /*Страница настройки*/
-  "change theme": "смена темы",
-
   /*Страница главная*/
   Search: "Поиск",
   Home: "Главная",
+  Statistics: "Статистика",
+  Profile: "Профиль",
 } as const;
