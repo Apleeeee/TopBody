@@ -3,12 +3,16 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { RootState } from "app/model";
 
+export type ILanguage = "en" | "ru";
+
 export interface ISettingsState {
   currentTheme: "dark" | "light";
+  currentLanguage: ILanguage;
 }
 
 const initialState: ISettingsState = {
   currentTheme: "dark",
+  currentLanguage: "en",
 };
 
 export const settingSlice = createSlice({
@@ -18,13 +22,19 @@ export const settingSlice = createSlice({
     changeTheme: (state, action: PayloadAction<"dark" | "light">) => {
       state.currentTheme = action.payload;
     },
+    setCurrentLanguage: (state, action: PayloadAction<"en" | "ru">) => {
+      state.currentLanguage = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { changeTheme } = settingSlice.actions;
+export const { changeTheme, setCurrentLanguage } = settingSlice.actions;
 
 export const selectCurrentTheme = (state: RootState) =>
   state.settings.currentTheme;
+
+export const selectCurrentLanguage = (state: RootState) =>
+  state.settings.currentLanguage;
 
 export default settingSlice.reducer;

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   TextInput,
@@ -15,6 +16,7 @@ import SCREENS from "shared/lib/screen";
 const ForgotPasswordScreen = () => {
   const [textEmailForgot, setTextEmailForgot] = React.useState("");
   const theme = useTheme();
+  const { t } = useTranslation();
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -23,20 +25,22 @@ const ForgotPasswordScreen = () => {
         TopBody
       </Text>
       <View>
-        <Text variant="headlineLarge">Forgot your password?</Text>
+        <Text variant="headlineLarge">{t("Forgot your password?")}</Text>
         <Text variant="labelLarge">
-          Don’t worry, it happens to the best of us.
+          {t("Don’t worry, it happens to the best of us.")}
         </Text>
       </View>
       <View style={styles.buttonSendResetLink}>
         <TextInput
-          label="Email or username"
+          label={t("Email or username")}
           value={textEmailForgot}
           onChangeText={(text) => setTextEmailForgot(text)}
         />
-        <Button mode="contained">Send reset link</Button>
+        <Button mode="contained">{t("Send reset link")}</Button>
       </View>
-      <Button onPress={() => navigate(SCREENS.SignIn)}>Back to sign in</Button>
+      <Button onPress={() => navigate(SCREENS.SignIn)}>
+        {t("Back to sign in")}
+      </Button>
     </SafeAreaView>
   );
 };

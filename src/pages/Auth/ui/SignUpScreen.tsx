@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   Button,
@@ -21,6 +22,7 @@ const SignUpScreen = () => {
     React.useState("");
   const [checked, setChecked] = React.useState(false);
   const theme = useTheme();
+  const { t } = useTranslation();
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -29,25 +31,27 @@ const SignUpScreen = () => {
         TopBody
       </Text>
       <View>
-        <Text variant="headlineSmall">Join</Text>
+        <Text variant="headlineSmall">{t("Join")}</Text>
         <View style={styles.row}>
-          <Text>Already a member?</Text>
-          <Button onPress={() => navigate(SCREENS.SignIn)}>Sign In</Button>
+          <Text>{t("Already a member?")}</Text>
+          <Button onPress={() => navigate(SCREENS.SignIn)}>
+            {t("Sign In")}
+          </Button>
         </View>
       </View>
       <View style={styles.input}>
         <TextInput
-          label="Email"
+          label={t("Email")}
           value={textEmailSingUp}
           onChangeText={(text) => setTextEmailSingUp(text)}
         />
         <TextInput
-          label="Password"
+          label={t("Password")}
           value={textPasswordSingUp}
           onChangeText={(text) => setTextPasswordSingUp(text)}
         />
         <TextInput
-          label="ConfirmPassword"
+          label={t("ConfirmPassword")}
           value={textConfirmPasswordSingUp}
           onChangeText={(text) => setTextConfirmPasswordSingUp(text)}
         />
@@ -60,13 +64,16 @@ const SignUpScreen = () => {
       >
         <Checkbox status={checked ? "checked" : "unchecked"} />
         <Text style={styles.textCheckbox}>
-          Yes, I want emails with recommendations, special offers and more.
+          {t(
+            "Yes, I want emails with recommendations, special offers and more.",
+          )}
         </Text>
       </TouchableOpacity>
-      <Button mode="contained">Join now</Button>
+      <Button mode="contained">{t("Join Now")}</Button>
       <Text style={styles.footerText}>
-        By joining TopBody, you accept our Membership agreement, Privacy Policy
-        and Terms of Use.
+        {t(
+          "By joining TopBody, you accept our Membership agreement, Privacy Policy and Terms of Use.",
+        )}
       </Text>
     </SafeAreaView>
   );
