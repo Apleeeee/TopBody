@@ -1,12 +1,53 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  combineReducers,
+  EnhancedStore,
+} from "@reduxjs/toolkit";
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PersistConfig,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from "redux-persist";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import settings from "../../entities/Settings/model";
 
-export const store = configureStore({
-  reducer: { settings },
-});
+const reducers = combineReducers({ settings });
+const persistConfig: PersistConfig<ReturnType<typeof reducers>> = {
+  key: "root",
+  storage: AsyncStorage,
+};
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+export type PreloaderState = ReturnType<typeof persistedReducer>;
+export type StoreType = EnhancedStore<PreloaderState>;
+
+export const makeStore = (preloadedState?: PreloaderState) => {
+  return configureStore({
+    reducer: persistedReducer,
+    preloadedState: preloadedState as PreloaderState,
+    devTools: process.env.NODE_ENV !== "production",
+    middleware: (getDefaultMiddleware) => {
+      const defaultMiddleware = getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      });
+
+      return defaultMiddleware;
+    },
+  });
+};
+
+export const store: StoreType = makeStore();
+export const persistor = persistStore(store);
+
+setupListeners(store.dispatch);
