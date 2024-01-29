@@ -37,10 +37,10 @@ const MainScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexStart: "center",
     justifyContent: "space-between",
     gap: 25,
-    paddingHorizontal: 15,
   },
   title: {
     textAlign: "center",

@@ -8,4 +8,5 @@ export type RootStackParamList = {
   [SCREENS.Main]: undefined;
   [SCREENS.MyProfile]: undefined;
   [SCREENS.ProfileStatistics]: undefined;
+  [SCREENS.Tab]: undefined;
 };
