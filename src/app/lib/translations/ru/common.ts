@@ -9,6 +9,7 @@ export default {
   [SCREENS.Main]: "Главная",
   [SCREENS.ProfileStatistics]: "ProfileStatistics",
   [SCREENS.MyProfile]: "Профиль",
+  [SCREENS.Tab]: "Таб",
 
   /*Страница настройки*/
   Russia: "Русский",

@@ -1,15 +1,14 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTranslation } from "react-i18next";
 
-import SignUpScreen from "pages/Auth/ui/SignUpScreen";
-import ForgotPasswordScreen from "pages/Auth/ui/ForgotPasswordScreen";
-import SignInScreen from "pages/Auth/ui/SignInScreen";
-import MainScreen from "pages/MainPages/iu/MainScreen";
-import ProfileStatisticsScreen from "pages/MainPages/iu/ProfileStatistics";
-import MyProfileScreen from "pages/MainPages/iu/MyProfile";
+import SignInScreen from "./Auth/ui/SignInScreen";
+import SignUpScreen from "./Auth/ui/SignUpScreen";
+import ForgotPasswordScreen from "./Auth/ui/ForgotPasswordScreen";
+import TabStack from "./TabStack/TabStack";
+
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
-import SettingsScreen from "pages/Settings/ui/SettingsScreen";
+import SettingsScreen from "pages/MainStack/Settings/ui/SettingsScreen";
 import { IconButton } from "shared/ui";
 import { RootStackParamList } from "shared/lib/types";
 
@@ -37,12 +36,11 @@ const MainStack = () => {
         component={ForgotPasswordScreen}
       />
       <Stack.Screen name={SCREENS.Settings} component={SettingsScreen} />
-      <Stack.Screen name={SCREENS.Main} component={MainScreen} />
       <Stack.Screen
-        name={SCREENS.ProfileStatistics}
-        component={ProfileStatisticsScreen}
+        name={SCREENS.Tab}
+        component={TabStack}
+        options={{ headerShown: false }}
       />
-      <Stack.Screen name={SCREENS.MyProfile} component={MyProfileScreen} />
     </Stack.Navigator>
   );
 };
