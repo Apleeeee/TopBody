@@ -36,11 +36,12 @@ const SignInScreen = () => {
       </View>
       <View style={styles.input}>
         <TextInput
-          label={t("Email or username")}
+          label={t("Email")}
           value={textEmail}
           onChangeText={(text) => setTextEmail(text)}
         />
         <TextInput
+          secureTextEntry={true}
           label={t("Password")}
           value={textPassword}
           onChangeText={(text) => setTextPassword(text)}

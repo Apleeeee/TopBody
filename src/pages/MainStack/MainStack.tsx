@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const getIsSignedIn = () => {
   // custom logic
-  return false;
+  return true;
 };
 
 const MainStack = () => {

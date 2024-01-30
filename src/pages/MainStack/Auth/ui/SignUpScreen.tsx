@@ -46,11 +46,13 @@ const SignUpScreen = () => {
           onChangeText={(text) => setTextEmailSingUp(text)}
         />
         <TextInput
+          secureTextEntry={true}
           label={t("Password")}
           value={textPasswordSingUp}
           onChangeText={(text) => setTextPasswordSingUp(text)}
         />
         <TextInput
+          secureTextEntry={true}
           label={t("ConfirmPassword")}
           value={textConfirmPasswordSingUp}
           onChangeText={(text) => setTextConfirmPasswordSingUp(text)}
