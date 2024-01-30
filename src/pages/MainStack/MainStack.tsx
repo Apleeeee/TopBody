@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const getIsSignedIn = () => {
   // custom logic
-  return true;
+  return false;
 };
 
 const MainStack = () => {
@@ -30,7 +30,7 @@ const MainStack = () => {
         title: t(name),
         headerRight: () => (
           <IconButton
-            icon={"cog-outline"}
+            icon={"cog"}
             onPress={() => navigate(SCREENS.Settings)}
           ></IconButton>
         ),
