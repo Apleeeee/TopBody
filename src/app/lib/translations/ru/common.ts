@@ -7,7 +7,7 @@ export default {
   [SCREENS.ForgotPassword]: "Забыли пароль",
   [SCREENS.Settings]: "Настройки",
   [SCREENS.Main]: "Главная",
-  [SCREENS.ProfileStatistics]: "ProfileStatistics",
+  [SCREENS.ProfileStatistics]: "Статистика профиля",
   [SCREENS.MyProfile]: "Профиль",
   [SCREENS.Tab]: "Таб",
 
