@@ -14,11 +14,10 @@ import {
   DefaultTheme,
   DarkTheme as DefaultDarkTheme,
 } from "@react-navigation/native";
-
-import {} from "../lib/i18n";
+import { PersistGate } from "redux-persist/integration/react";
 
 import MainStack from "pages/MainStack/MainStack";
-import { store } from "app/model";
+import { persistor, store } from "app/model";
 import { selectCurrentTheme } from "entities/Settings/model";
 import { navigationRef } from "shared/lib/navigationRef";
 const { LightTheme, DarkTheme } = adaptNavigationTheme({
@@ -52,7 +51,15 @@ const Wraper = () => {
 export default function App() {
   return (
     <Provider store={store}>
-      <Wraper></Wraper>
+      <PersistGate
+        loading={null}
+        persistor={persistor}
+        onBeforeLift={() => {
+          require("../lib/i18n");
+        }}
+      >
+        <Wraper />
+      </PersistGate>
     </Provider>
   );
 }
