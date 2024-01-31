@@ -14,8 +14,15 @@ import { RootStackParamList } from "shared/lib/types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const getIsSignedIn = () => {
+  // custom logic
+  return true;
+};
+
 const MainStack = () => {
   const { t } = useTranslation();
+
+  const isSignedIn = getIsSignedIn();
 
   return (
     <Stack.Navigator
@@ -23,24 +30,31 @@ const MainStack = () => {
         title: t(name),
         headerRight: () => (
           <IconButton
-            icon={"cog-outline"}
+            icon={"cog"}
             onPress={() => navigate(SCREENS.Settings)}
           ></IconButton>
         ),
       })}
     >
-      <Stack.Screen name={SCREENS.SignIn} component={SignInScreen} />
-      <Stack.Screen name={SCREENS.SignUp} component={SignUpScreen} />
-      <Stack.Screen
-        name={SCREENS.ForgotPassword}
-        component={ForgotPasswordScreen}
-      />
+      {isSignedIn ? (
+        <>
+          <Stack.Screen name={SCREENS.SignIn} component={SignInScreen} />
+          <Stack.Screen name={SCREENS.SignUp} component={SignUpScreen} />
+          <Stack.Screen
+            name={SCREENS.ForgotPassword}
+            component={ForgotPasswordScreen}
+          />
+        </>
+      ) : (
+        <>
+          <Stack.Screen
+            name={SCREENS.Tab}
+            component={TabStack}
+            options={{ headerShown: false }}
+          />
+        </>
+      )}
       <Stack.Screen name={SCREENS.Settings} component={SettingsScreen} />
-      <Stack.Screen
-        name={SCREENS.Tab}
-        component={TabStack}
-        options={{ headerShown: false }}
-      />
     </Stack.Navigator>
   );
 };
