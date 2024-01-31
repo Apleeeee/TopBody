@@ -64,56 +64,20 @@ const SignUpScreen = () => {
         </View>
       </View>
       <View style={styles.input}>
-        <Controller
-          control={control}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
-            <View>
-              <TextInput
-                error={Boolean(error)}
-                label={t("Email")}
-                value={value}
-                onChangeText={onChange}
-              />
-              <HelperText type="error" visible={Boolean(error)}>
-                {error?.message}
-              </HelperText>
-            </View>
-          )}
-          name="email"
+        <TextInput
+          label={t("Email")}
+          value={textEmailSingUp}
+          onChangeText={(text) => setTextEmailSingUp(text)}
         />
-        <Controller
-          control={control}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
-            <View>
-              <TextInput
-                error={Boolean(error)}
-                label={t("Password")}
-                value={value}
-                onChangeText={onChange}
-              />
-              <HelperText type="error" visible={Boolean(error)}>
-                {error?.message}
-              </HelperText>
-            </View>
-          )}
-          name="password"
+        <TextInput
+          label={t("Password")}
+          value={textPasswordSingUp}
+          onChangeText={(text) => setTextPasswordSingUp(text)}
         />
-        <Controller
-          control={control}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
-            <View>
-              <TextInput
-                error={Boolean(error)}
-                label={t("ConfirmPassword")}
-                value={value}
-                onChangeText={onChange}
-              />
-              <HelperText type="error" visible={Boolean(error)}>
-                {error?.message}
-              </HelperText>
-            </View>
-          )}
-          name="confirmPassword"
+        <TextInput
+          label={t("ConfirmPassword")}
+          value={textConfirmPasswordSingUp}
+          onChangeText={(text) => setTextConfirmPasswordSingUp(text)}
         />
       </View>
       <TouchableOpacity

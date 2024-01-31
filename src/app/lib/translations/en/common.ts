@@ -25,7 +25,7 @@ export default {
   "Sign in": "Sign in",
   "Not a member?": "Not a member?",
   "Join now": "Join now",
-  "Email or username": "Email or username",
+  Email: "Email",
   Password: "Password",
   "Sign In": "Sign In",
   "Forgot your password?": "Forgot your password?",
@@ -33,7 +33,6 @@ export default {
   /*Страница регистрации*/
   Join: "Join",
   "Already a member?": "Already a member?",
-  Email: "Email",
   ConfirmPassword: "Confirm Password",
   "Yes, I want emails with recommendations, special offers and more.":
     "Yes, I want emails with recommendations, special offers and more.",
