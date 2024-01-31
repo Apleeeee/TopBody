@@ -62,15 +62,39 @@ const SignInScreen = () => {
         </View>
       </View>
       <View style={styles.input}>
-        <TextInput
-          label={t("Email or username")}
-          value={textEmail}
-          onChangeText={(text) => setTextEmail(text)}
+        <Controller
+          control={control}
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
+            <View>
+              <TextInput
+                error={Boolean(error)}
+                label={t("Email or username")}
+                value={value}
+                onChangeText={onChange}
+              />
+              <HelperText type="error" visible={Boolean(error)}>
+                {error?.message}
+              </HelperText>
+            </View>
+          )}
+          name="email"
         />
-        <TextInput
-          label={t("Password")}
-          value={textPassword}
-          onChangeText={(text) => setTextPassword(text)}
+        <Controller
+          control={control}
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
+            <View>
+              <TextInput
+                error={Boolean(error)}
+                label={t("Password")}
+                value={value}
+                onChangeText={onChange}
+              />
+              <HelperText type="error" visible={Boolean(error)}>
+                {error?.message}
+              </HelperText>
+            </View>
+          )}
+          name="password"
         />
       </View>
       <View style={styles.buttonSignIn}>

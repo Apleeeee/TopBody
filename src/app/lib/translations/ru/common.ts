@@ -12,7 +12,7 @@ export default {
   [SCREENS.ForgotPassword]: "Забыли пароль",
   [SCREENS.Settings]: "Настройки",
   [SCREENS.Main]: "Главная",
-  [SCREENS.ProfileStatistics]: "Статистика профиля",
+  [SCREENS.ProfileStatistics]: "ProfileStatistics",
   [SCREENS.MyProfile]: "Профиль",
   [SCREENS.Tab]: "Таб",
 
@@ -25,7 +25,7 @@ export default {
   "Sign in": "Войти",
   "Not a member?": "Не являетесь участником?",
   "Join now": "Присоединяйся сейчас",
-  Email: "Электронная почта",
+  "Email or username": "Электронная почта или имя пользователя",
   Password: "Пароль",
   "Sign In": "Вход",
   "Forgot your password?": "Забыли пароль?",
@@ -33,6 +33,7 @@ export default {
   /*Страница регистрации*/
   Join: "Регистрация",
   "Already a member?": "Уже учавствуете?",
+  Email: "Электронная почта",
   ConfirmPassword: "Повторите пароль",
   "Yes, I want emails with recommendations, special offers and more.":
     "Да, я хочу получать электронные письма с рекомендациями, специальными предложениями и многим другим.",
