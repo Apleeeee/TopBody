@@ -24,7 +24,7 @@ const { LightTheme, DarkTheme } = adaptNavigationTheme({
   reactNavigationLight: DefaultTheme,
   reactNavigationDark: DefaultDarkTheme,
 });
-const Wraper = () => {
+const Wrapper = () => {
   const currentTheme = useSelector(selectCurrentTheme);
 
   const { theme } = useMaterial3Theme();
@@ -58,7 +58,7 @@ export default function App() {
           require("../lib/i18n");
         }}
       >
-        <Wraper />
+        <Wrapper />
       </PersistGate>
     </Provider>
   );

@@ -68,7 +68,7 @@ const SignInScreen = () => {
             <View>
               <TextInput
                 error={Boolean(error)}
-                label={t("Email or username")}
+                label={t("Email")}
                 value={value}
                 onChangeText={onChange}
               />

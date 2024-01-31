@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState } from "app/model";
-
 export type ILanguage = "en" | "ru";
 
 export interface ISettingsState {
