@@ -1,5 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { z } from "zod";
+import { Controller, useForm } from "react-hook-form";
+import { TFunction } from "i18next";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   TextInput,
@@ -9,14 +13,32 @@ import {
   SafeAreaView,
   StyleSheet,
   View,
+  HelperText,
 } from "shared/ui";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 
+const getSchema = (t: TFunction) => {
+  return z.object({
+    email: z
+      .string({ required_error: t("This field is requaired!") })
+      .email({ message: t("Invalid email address") }),
+  });
+};
 const ForgotPasswordScreen = () => {
-  const [textEmailForgot, setTextEmailForgot] = React.useState("");
   const theme = useTheme();
+
   const { t } = useTranslation();
+
+  const { control, handleSubmit } = useForm({
+    resolver: zodResolver(getSchema(t)),
+    defaultValues: {
+      email: "",
+    },
+  });
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -31,12 +53,27 @@ const ForgotPasswordScreen = () => {
         </Text>
       </View>
       <View style={styles.buttonSendResetLink}>
-        <TextInput
-          label={t("Email or username")}
-          value={textEmailForgot}
-          onChangeText={(text) => setTextEmailForgot(text)}
+        <Controller
+          control={control}
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
+            <View>
+              <TextInput
+                error={Boolean(error)}
+                label={t("Email or username")}
+                value={value}
+                onChangeText={onChange}
+              />
+              <HelperText type="error" visible={Boolean(error)}>
+                {error?.message}
+              </HelperText>
+            </View>
+          )}
+          name="email"
         />
-        <Button mode="contained">{t("Send reset link")}</Button>
+
+        <Button mode="contained" onPress={onSubmit}>
+          {t("Send reset link")}
+        </Button>
       </View>
       <Button onPress={() => navigate(SCREENS.SignIn)}>
         {t("Back to sign in")}
