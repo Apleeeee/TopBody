@@ -1,5 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { z } from "zod";
+import { Controller, useForm } from "react-hook-form";
+import { TFunction } from "i18next";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
   Button,
@@ -11,18 +15,38 @@ import {
   TextInput,
   Checkbox,
   SafeAreaView,
+  HelperText,
 } from "shared/ui";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
-
+const getSchema = (t: TFunction) => {
+  return z.object({
+    email: z
+      .string({ required_error: t("This field is requaired!") })
+      .email({ message: t("Invalid email address") }),
+    password: z
+      .string({ required_error: t("This field is requaired!") })
+      .min(8, { message: t("Must be n or more characters long", { n: 8 }) }),
+    confirmPassword: z
+      .string({ required_error: t("This field is requaired!") })
+      .min(8, { message: t("Must be n or more characters long", { n: 8 }) }),
+  });
+};
 const SignUpScreen = () => {
-  const [textEmailSingUp, setTextEmailSingUp] = React.useState("");
-  const [textPasswordSingUp, setTextPasswordSingUp] = React.useState("");
-  const [textConfirmPasswordSingUp, setTextConfirmPasswordSingUp] =
-    React.useState("");
   const [checked, setChecked] = React.useState(false);
   const theme = useTheme();
   const { t } = useTranslation();
+  const { control, handleSubmit } = useForm({
+    resolver: zodResolver(getSchema(t)),
+    defaultValues: {
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -46,13 +70,11 @@ const SignUpScreen = () => {
           onChangeText={(text) => setTextEmailSingUp(text)}
         />
         <TextInput
-          secureTextEntry={true}
           label={t("Password")}
           value={textPasswordSingUp}
           onChangeText={(text) => setTextPasswordSingUp(text)}
         />
         <TextInput
-          secureTextEntry={true}
           label={t("ConfirmPassword")}
           value={textConfirmPasswordSingUp}
           onChangeText={(text) => setTextConfirmPasswordSingUp(text)}
@@ -71,7 +93,9 @@ const SignUpScreen = () => {
           )}
         </Text>
       </TouchableOpacity>
-      <Button mode="contained">{t("Join Now")}</Button>
+      <Button mode="contained" onPress={onSubmit}>
+        {t("Join Now")}
+      </Button>
       <Text style={styles.footerText}>
         {t(
           "By joining TopBody, you accept our Membership agreement, Privacy Policy and Terms of Use.",

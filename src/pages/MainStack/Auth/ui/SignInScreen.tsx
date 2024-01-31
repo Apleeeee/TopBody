@@ -1,5 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Controller, useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TFunction } from "i18next";
 
 import {
   TextInput,
@@ -9,15 +13,38 @@ import {
   StyleSheet,
   View,
   SafeAreaView,
+  HelperText,
 } from "shared/ui";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
+const getSchema = (t: TFunction) => {
+  return z.object({
+    email: z
+      .string({ required_error: t("This field is requaired!") })
+      .email({ message: t("Invalid email address") }),
+    password: z
+      .string({ required_error: t("This field is requaired!") })
+      .min(8, { message: t("Must be n or more characters long", { n: 8 }) }),
+  });
+};
 
 const SignInScreen = () => {
-  const [textEmail, setTextEmail] = React.useState("");
-  const [textPassword, setTextPassword] = React.useState("");
   const theme = useTheme();
+
   const { t } = useTranslation();
+
+  const { control, handleSubmit } = useForm({
+    resolver: zodResolver(getSchema(t)),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    navigate(SCREENS.Tab);
+  });
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -36,19 +63,18 @@ const SignInScreen = () => {
       </View>
       <View style={styles.input}>
         <TextInput
-          label={t("Email")}
+          label={t("Email or username")}
           value={textEmail}
           onChangeText={(text) => setTextEmail(text)}
         />
         <TextInput
-          secureTextEntry={true}
           label={t("Password")}
           value={textPassword}
           onChangeText={(text) => setTextPassword(text)}
         />
       </View>
       <View style={styles.buttonSignIn}>
-        <Button mode="contained" onPress={() => navigate(SCREENS.Tab)}>
+        <Button mode="contained" onPress={onSubmit}>
           {t("Sign In")}
         </Button>
         <Button onPress={() => navigate(SCREENS.ForgotPassword)}>

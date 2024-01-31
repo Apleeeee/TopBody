@@ -1,6 +1,11 @@
 import SCREENS from "shared/lib/screen";
 
 export default {
+  /*Блок ошибок и их переводов*/
+  "This field is requaired!": "This field is requaired!",
+  "Invalid email address": "Invalid email address",
+  "Must be n or more characters long": "Must be {{n}} or more characters long",
+
   /*Экраны*/
   [SCREENS.SignIn]: "Sign In",
   [SCREENS.SignUp]: "Sign Up",
