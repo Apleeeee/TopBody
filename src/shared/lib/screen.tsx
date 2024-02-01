@@ -7,6 +7,8 @@ enum SCREENS {
   MyProfile = "MyProfile",
   ProfileStatistics = "ProfileStatistics",
   Tab = "Tab",
+  AuthStack = "AuthStack",
+  SplashScreen = "SplashScreen",
 }
 
 export default SCREENS;

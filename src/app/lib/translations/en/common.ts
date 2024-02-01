@@ -15,6 +15,11 @@ export default {
   [SCREENS.ProfileStatistics]: "ProfileStatistics",
   [SCREENS.MyProfile]: "MyProfile",
   [SCREENS.Tab]: "Tab",
+  [SCREENS.AuthStack]: "AuthStack",
+  [SCREENS.SplashScreen]: "SplashScreen",
+
+  /*Страница загрузки*/
+  Loading: "Loading",
 
   /*Страница настройки*/
   Russia: "Russia",

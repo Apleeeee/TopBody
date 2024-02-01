@@ -90,6 +90,7 @@ const SignUpScreen = () => {
                 label={t("Password")}
                 value={value}
                 onChangeText={onChange}
+                secureTextEntry
               />
               <HelperText type="error" visible={Boolean(error)}>
                 {error?.message}
@@ -107,6 +108,7 @@ const SignUpScreen = () => {
                 label={t("ConfirmPassword")}
                 value={value}
                 onChangeText={onChange}
+                secureTextEntry
               />
               <HelperText type="error" visible={Boolean(error)}>
                 {error?.message}

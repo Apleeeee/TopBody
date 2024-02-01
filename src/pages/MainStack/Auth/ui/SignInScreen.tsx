@@ -45,6 +45,7 @@ const SignInScreen = () => {
     console.log(data);
     navigate(SCREENS.Tab);
   });
+
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -88,6 +89,7 @@ const SignInScreen = () => {
                 label={t("Password")}
                 value={value}
                 onChangeText={onChange}
+                secureTextEntry
               />
               <HelperText type="error" visible={Boolean(error)}>
                 {error?.message}
