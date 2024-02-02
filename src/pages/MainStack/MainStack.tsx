@@ -1,29 +1,24 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTranslation } from "react-i18next";
+import * as React from "react";
+import { useSelector } from "react-redux";
 
-import SignInScreen from "./Auth/ui/SignInScreen";
-import SignUpScreen from "./Auth/ui/SignUpScreen";
-import ForgotPasswordScreen from "./Auth/ui/ForgotPasswordScreen";
 import TabStack from "./TabStack/TabStack";
+import AuthStack from "./Auth/AuthenticationStack";
 
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 import SettingsScreen from "pages/MainStack/Settings/ui/SettingsScreen";
 import { IconButton } from "shared/ui";
 import { RootStackParamList } from "shared/lib/types";
+import { selectUser } from "entities/Authentication/model";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const getIsSignedIn = () => {
-  // custom logic
-  return true;
-};
 
 const MainStack = () => {
   const { t } = useTranslation();
 
-  const isSignedIn = getIsSignedIn();
-
+  const user = useSelector(selectUser);
   return (
     <Stack.Navigator
       screenOptions={({ route: { name } }) => ({
@@ -36,23 +31,20 @@ const MainStack = () => {
         ),
       })}
     >
-      {isSignedIn ? (
-        <>
-          <Stack.Screen name={SCREENS.SignIn} component={SignInScreen} />
-          <Stack.Screen name={SCREENS.SignUp} component={SignUpScreen} />
-          <Stack.Screen
-            name={SCREENS.ForgotPassword}
-            component={ForgotPasswordScreen}
-          />
-        </>
+      {user === null ? (
+        <Stack.Screen
+          name={SCREENS.AuthStack}
+          component={AuthStack}
+          options={{
+            headerShown: false,
+          }}
+        />
       ) : (
-        <>
-          <Stack.Screen
-            name={SCREENS.Tab}
-            component={TabStack}
-            options={{ headerShown: false }}
-          />
-        </>
+        <Stack.Screen
+          name={SCREENS.Tab}
+          component={TabStack}
+          options={{ headerShown: false }}
+        />
       )}
       <Stack.Screen name={SCREENS.Settings} component={SettingsScreen} />
     </Stack.Navigator>

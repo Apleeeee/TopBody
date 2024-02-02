@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TFunction } from "i18next";
+import { useDispatch } from "react-redux";
 
 import {
   TextInput,
@@ -17,6 +18,8 @@ import {
 } from "shared/ui";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
+import { updateUser } from "entities/Authentication/model";
+
 const getSchema = (t: TFunction) => {
   return z.object({
     email: z
@@ -29,6 +32,8 @@ const getSchema = (t: TFunction) => {
 };
 
 const SignInScreen = () => {
+  const dispatch = useDispatch();
+
   const theme = useTheme();
 
   const { t } = useTranslation();
@@ -42,9 +47,9 @@ const SignInScreen = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
-    navigate(SCREENS.Tab);
+    dispatch(updateUser({ email: data.email }));
   });
+
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -88,6 +93,7 @@ const SignInScreen = () => {
                 label={t("Password")}
                 value={value}
                 onChangeText={onChange}
+                secureTextEntry
               />
               <HelperText type="error" visible={Boolean(error)}>
                 {error?.message}

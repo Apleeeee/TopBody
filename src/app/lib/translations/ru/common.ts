@@ -15,6 +15,7 @@ export default {
   [SCREENS.ProfileStatistics]: "Статистика профиля",
   [SCREENS.MyProfile]: "Профиль",
   [SCREENS.Tab]: "Таб",
+  [SCREENS.AuthStack]: "Аунтификация",
 
   /*Страница настройки*/
   Russia: "Русский",
