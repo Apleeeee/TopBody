@@ -6,6 +6,7 @@ import ForgotPasswordScreen from "./ui/ForgotPasswordScreen";
 
 import SCREENS from "shared/lib/screen";
 import { RootStackParamList } from "shared/lib/types";
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AuthStack = () => {
@@ -20,5 +21,4 @@ const AuthStack = () => {
     </Stack.Navigator>
   );
 };
-
 export default AuthStack;

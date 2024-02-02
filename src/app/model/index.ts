@@ -19,7 +19,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import settings from "../../entities/Settings/model";
 
-const reducers = combineReducers({ settings });
+import authentication from "entities/Authentication/model";
+const reducers = combineReducers({ settings, authentication });
 const persistConfig: PersistConfig<ReturnType<typeof reducers>> = {
   key: "root",
   storage: AsyncStorage,

@@ -16,10 +16,6 @@ export default {
   [SCREENS.MyProfile]: "Профиль",
   [SCREENS.Tab]: "Таб",
   [SCREENS.AuthStack]: "Аунтификация",
-  [SCREENS.SplashScreen]: "Заставка",
-
-  /*Страница загрузки*/
-  Loading: "Загрузка",
 
   /*Страница настройки*/
   Russia: "Русский",
