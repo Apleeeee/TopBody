@@ -22,6 +22,10 @@ export default {
   English: "Английский",
   "change theme": "смена темы",
   "Exit the application": "Выход из приложения",
+  "Language selection": "Выбор языка",
+  dark: "Тёмная",
+  light: "Светлая",
+  "Changing the theme": "Смена темы",
 
   /*Страница входа*/
   "Sign in": "Войти",

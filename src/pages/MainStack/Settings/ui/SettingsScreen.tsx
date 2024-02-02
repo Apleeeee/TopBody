@@ -48,25 +48,27 @@ const SettingsScreen = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
-      <RadioButton.Group
-        onValueChange={onToggleLanguage}
-        value={currentLanguage}
-      >
-        <View>
+      <View style={styles.fullBody}>
+        <View style={styles.nameHeader}>
+          <Text variant="headlineMedium">{t("Changing the theme")}</Text>
+          <View style={styles.button}>
+            <Switch
+              value={currentTheme === "dark"}
+              onValueChange={onToggleSwitch}
+            />
+            <Text variant="headlineSmall">{t(currentTheme)}</Text>
+          </View>
+        </View>
+        <Text variant="headlineMedium">{t("Language selection")}</Text>
+        <RadioButton.Group
+          onValueChange={onToggleLanguage}
+          value={currentLanguage}
+        >
           <Text>{t("Russia")}</Text>
-          <RadioButton.Android value="ru" />
-        </View>
-        <View>
+          <RadioButton.Item label="Russian" value="ru" />
           <Text>{t("English")}</Text>
-          <RadioButton.Android value="en" />
-        </View>
-      </RadioButton.Group>
-      <View style={styles.button}>
-        <Switch
-          value={currentTheme === "dark"}
-          onValueChange={onToggleSwitch}
-        />
-        <Text variant="headlineSmall">{t("change theme")}</Text>
+          <RadioButton.Item label="English" value="en" />
+        </RadioButton.Group>
       </View>
       <Button mode="contained" onPress={onPress}>
         {t("Exit the application")}
@@ -78,11 +80,18 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    padding: 20,
     justifyContent: "space-between",
+  },
+  nameHeader: {
+    gap: 15,
   },
   button: {
     flexDirection: "row",
+    gap: 15,
+  },
+  fullBody: {
+    gap: 15,
   },
 });
 export default SettingsScreen;
