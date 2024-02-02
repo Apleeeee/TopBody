@@ -4,8 +4,9 @@ import MainScreen from "./ui/MainScreen";
 import MyProfileScreen from "./ui/MyProfile";
 import ProfileStatisticsScreen from "./ui/ProfileStatistics";
 
-import { Icon } from "shared/ui";
+import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
+import { Icon, IconButton } from "shared/ui";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,18 @@ const TabStack = () => {
         name={SCREENS.ProfileStatistics}
         component={ProfileStatisticsScreen}
       />
-      <Tab.Screen name={SCREENS.MyProfile} component={MyProfileScreen} />
+      <Tab.Screen
+        name={SCREENS.MyProfile}
+        component={MyProfileScreen}
+        options={{
+          headerRight: () => (
+            <IconButton
+              icon={"cog"}
+              onPress={() => navigate(SCREENS.Settings)}
+            ></IconButton>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };

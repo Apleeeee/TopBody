@@ -1,6 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 
+import { updateUser } from "entities/Authentication/model";
 import {
   ILanguage,
   changeTheme,
@@ -8,14 +9,16 @@ import {
   selectCurrentTheme,
   setCurrentLanguage,
 } from "entities/Settings/model";
+import { pop } from "shared/lib/navigationRef";
 import {
-  useTheme,
-  StyleSheet,
+  Button,
+  RadioButton,
   SafeAreaView,
+  StyleSheet,
   Switch,
   Text,
-  RadioButton,
   View,
+  useTheme,
 } from "shared/ui";
 
 const SettingsScreen = () => {
@@ -35,6 +38,10 @@ const SettingsScreen = () => {
   };
   const onToggleSwitch = () => {
     dispatch(changeTheme(currentTheme === "dark" ? "light" : "dark"));
+  };
+  const onPress = () => {
+    dispatch(updateUser(null));
+    pop();
   };
 
   return (
@@ -61,6 +68,9 @@ const SettingsScreen = () => {
         />
         <Text variant="headlineSmall">{t("change theme")}</Text>
       </View>
+      <Button mode="contained" onPress={onPress}>
+        {t("Exit the application")}
+      </Button>
     </SafeAreaView>
   );
 };
