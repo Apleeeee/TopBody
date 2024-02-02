@@ -19,6 +19,7 @@ const MainStack = () => {
   const { t } = useTranslation();
 
   const user = useSelector(selectUser);
+
   return (
     <Stack.Navigator
       screenOptions={({ route: { name } }) => ({

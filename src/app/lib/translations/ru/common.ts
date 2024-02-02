@@ -21,6 +21,7 @@ export default {
   Russia: "Русский",
   English: "Английский",
   "change theme": "смена темы",
+  "Exit the application": "Выход из приложения",
 
   /*Страница входа*/
   "Sign in": "Войти",
