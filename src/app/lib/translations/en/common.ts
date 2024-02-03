@@ -12,7 +12,7 @@ export default {
   [SCREENS.ForgotPassword]: "Forgot Password",
   [SCREENS.Settings]: "Settings",
   [SCREENS.Main]: "Main",
-  [SCREENS.ProfileStatistics]: "ProfileStatistics",
+  [SCREENS.ProfileStatistics]: "Profile Statistics",
   [SCREENS.MyProfile]: "MyProfile",
   [SCREENS.Tab]: "Tab",
   [SCREENS.AuthStack]: "AuthStack",
@@ -22,6 +22,10 @@ export default {
   English: "English",
   "change theme": "change theme",
   "Exit the application": "Exit the application",
+  "Language selection": "Language selection",
+  dark: "dark",
+  light: "light",
+  "Changing the theme": "Changing the theme",
 
   /*Страница входа*/
   "Sign in": "Sign in",
