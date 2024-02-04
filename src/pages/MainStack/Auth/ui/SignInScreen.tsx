@@ -24,10 +24,10 @@ import {
 const getSchema = (t: TFunction) => {
   return z.object({
     email: z
-      .string({ required_error: t("This field is requaired!") })
+      .string({ required_error: t("This field is required!") })
       .email({ message: t("Invalid email address") }),
     password: z
-      .string({ required_error: t("This field is requaired!") })
+      .string({ required_error: t("This field is required!") })
       .min(8, { message: t("Must be n or more characters long", { n: 8 }) }),
   });
 };
@@ -48,7 +48,7 @@ const SignInScreen = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    dispatch(updateUser({ email: data.email }));
+    dispatch(updateUser({ email: data.email, height: 180, weight: 75 }));
   });
 
   return (
@@ -74,6 +74,7 @@ const SignInScreen = () => {
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <View>
                 <TextInput
+                  keyboardType="email-address"
                   error={Boolean(error)}
                   label={t("Email")}
                   value={value}

@@ -2,9 +2,11 @@ import SCREENS from "shared/lib/screen";
 
 export default {
   /*Блок ошибок и их переводов*/
-  "This field is requaired!": "Это обязательное поле",
+  "This field is required!": "Это обязательное поле",
   "Invalid email address": "Неверный адрес электронной почты",
   "Must be n or more characters long": "Должно быть {{n}} или более символов",
+  "This field must be number": "Это поле обязательно должно быть числовым",
+  "This field must be positive": "Это поле не должно быть меньше 0",
 
   /*Экраны*/
   [SCREENS.SignIn]: "Вход",
@@ -56,4 +58,9 @@ export default {
   Search: "Поиск",
   Statistics: "Статистика",
   Profile: "Профиль",
+
+  /* Страница профиля*/
+  Height: "Рост",
+  Weight: "Вес",
+  "Apply changes": "Применить изменения",
 } as const;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, useTheme, SafeAreaView, StyleSheet } from "shared/ui";
+import { SafeAreaView, StyleSheet, Text, useTheme } from "shared/ui";
 
 const ProfileStatisticsScreen = () => {
   const theme = useTheme();
