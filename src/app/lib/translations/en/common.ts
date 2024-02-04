@@ -54,7 +54,6 @@ export default {
   "Back to sign in": "Back to sign in",
 
   /*Страница главная*/
-  Home: "Home",
   Search: "Search",
   Statistics: "Statistics",
   Profile: "Profile",

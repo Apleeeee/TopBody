@@ -1,21 +1,21 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
-  configureStore,
-  combineReducers,
   EnhancedStore,
+  combineReducers,
+  configureStore,
 } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
 import {
   FLUSH,
   PAUSE,
   PERSIST,
-  PersistConfig,
-  persistReducer,
-  persistStore,
   PURGE,
+  PersistConfig,
   REGISTER,
   REHYDRATE,
+  persistReducer,
+  persistStore,
 } from "redux-persist";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import settings from "../../entities/Settings/model";
 

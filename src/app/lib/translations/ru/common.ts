@@ -54,7 +54,6 @@ export default {
 
   /*Страница главная*/
   Search: "Поиск",
-  Home: "Главная",
   Statistics: "Статистика",
   Profile: "Профиль",
 } as const;

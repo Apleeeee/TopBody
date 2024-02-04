@@ -1,17 +1,17 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useTranslation } from "react-i18next";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import TabStack from "./TabStack/TabStack";
 import AuthStack from "./Auth/AuthenticationStack";
+import TabStack from "./TabStack/TabStack";
 
+import { selectUser } from "entities/Authentication/model";
+import SettingsScreen from "pages/MainStack/Settings/ui/SettingsScreen";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
-import SettingsScreen from "pages/MainStack/Settings/ui/SettingsScreen";
-import { IconButton } from "shared/ui";
 import { RootStackParamList } from "shared/lib/types";
-import { selectUser } from "entities/Authentication/model";
+import { IconButton } from "shared/ui";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
