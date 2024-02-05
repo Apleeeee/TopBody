@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTranslation } from "react-i18next";
-import { IconButton } from "react-native-paper";
 
 import ForgotPasswordScreen from "./ui/ForgotPasswordScreen";
 import SignInScreen from "./ui/SignInScreen";
@@ -9,6 +8,7 @@ import SignUpScreen from "./ui/SignUpScreen";
 import { navigate } from "shared/lib/navigationRef";
 import SCREENS from "shared/lib/screen";
 import { RootStackParamList } from "shared/lib/types";
+import { IconButton } from "shared/ui";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
