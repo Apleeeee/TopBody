@@ -2,9 +2,11 @@ import SCREENS from "shared/lib/screen";
 
 export default {
   /*Блок ошибок и их переводов*/
-  "This field is requaired!": "This field is requaired!",
+  "This field is required!": "This field is required!",
   "Invalid email address": "Invalid email address",
   "Must be n or more characters long": "Must be {{n}} or more characters long",
+  "This field must be number": "This field must be number",
+  "This field must be positive": "This field must be positive",
 
   /*Экраны*/
   [SCREENS.SignIn]: "Sign In",
@@ -39,7 +41,6 @@ export default {
   /*Страница регистрации*/
   Join: "Join",
   "Already a member?": "Already a member?",
-
   ConfirmPassword: "Confirm Password",
   "Yes, I want emails with recommendations, special offers and more.":
     "Yes, I want emails with recommendations, special offers and more.",
@@ -54,8 +55,12 @@ export default {
   "Back to sign in": "Back to sign in",
 
   /*Страница главная*/
-  Home: "Home",
   Search: "Search",
   Statistics: "Statistics",
   Profile: "Profile",
+
+  /* Страница профиля*/
+  Height: "Height",
+  Weight: "Weight",
+  "Apply changes": "Apply changes",
 } as const;

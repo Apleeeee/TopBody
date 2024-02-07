@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
-import { updateUser } from "entities/Authentication/model";
+import { selectUser, updateUser } from "entities/Authentication/model";
 import {
   ILanguage,
   changeTheme,
@@ -44,6 +44,8 @@ const SettingsScreen = () => {
     pop();
   };
 
+  const user = useSelector(selectUser);
+
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -70,9 +72,11 @@ const SettingsScreen = () => {
           <RadioButton.Item label="English" value="en" />
         </RadioButton.Group>
       </View>
-      <Button mode="contained" onPress={onPress}>
-        {t("Exit the application")}
-      </Button>
+      {user === null ? null : (
+        <Button mode="contained" onPress={onPress}>
+          {t("Exit the application")}
+        </Button>
+      )}
     </SafeAreaView>
   );
 };

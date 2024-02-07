@@ -1,14 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import {
-  useTheme,
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  Searchbar,
-  View,
-} from "shared/ui";
+import { SafeAreaView, Searchbar, StyleSheet, useTheme } from "shared/ui";
 
 const MainScreen = () => {
   const theme = useTheme();
@@ -21,11 +14,6 @@ const MainScreen = () => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
-      <View>
-        <Text variant="displayLarge" style={styles.title}>
-          {t("Home")}
-        </Text>
-      </View>
       <Searchbar
         placeholder={t("Search")}
         onChangeText={setSearchQuery}

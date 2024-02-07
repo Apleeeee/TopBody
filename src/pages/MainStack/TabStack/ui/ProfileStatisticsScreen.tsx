@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Text, useTheme, SafeAreaView, StyleSheet } from "shared/ui";
+import { SafeAreaView, StyleSheet, Text, useTheme } from "shared/ui";
 
-const MyProfileScreen = () => {
+const ProfileStatisticsScreen = () => {
   const theme = useTheme();
 
   return (
@@ -10,7 +10,7 @@ const MyProfileScreen = () => {
       style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
       <Text variant="displayLarge" style={styles.title}>
-        TopBody1
+        TopBody2
       </Text>
     </SafeAreaView>
   );
@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyProfileScreen;
+export default ProfileStatisticsScreen;

@@ -23,20 +23,23 @@ import {
 const getSchema = (t: TFunction) => {
   return z.object({
     email: z
-      .string({ required_error: t("This field is requaired!") })
+      .string({ required_error: t("This field is required!") })
       .email({ message: t("Invalid email address") }),
     password: z
-      .string({ required_error: t("This field is requaired!") })
+      .string({ required_error: t("This field is required!") })
       .min(8, { message: t("Must be n or more characters long", { n: 8 }) }),
     confirmPassword: z
-      .string({ required_error: t("This field is requaired!") })
+      .string({ required_error: t("This field is required!") })
       .min(8, { message: t("Must be n or more characters long", { n: 8 }) }),
   });
 };
 const SignUpScreen = () => {
   const [checked, setChecked] = React.useState(false);
+
   const theme = useTheme();
+
   const { t } = useTranslation();
+
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(getSchema(t)),
     defaultValues: {
@@ -45,9 +48,11 @@ const SignUpScreen = () => {
       confirmPassword: "",
     },
   });
+
   const onSubmit = handleSubmit((data) => {
     console.log(data);
   });
+
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
@@ -71,6 +76,7 @@ const SignUpScreen = () => {
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <View>
                 <TextInput
+                  keyboardType="email-address"
                   error={Boolean(error)}
                   label={t("Email")}
                   value={value}

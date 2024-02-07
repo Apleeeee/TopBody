@@ -22,7 +22,7 @@ import {
 const getSchema = (t: TFunction) => {
   return z.object({
     email: z
-      .string({ required_error: t("This field is requaired!") })
+      .string({ required_error: t("This field is required!") })
       .email({ message: t("Invalid email address") }),
   });
 };
@@ -60,6 +60,7 @@ const ForgotPasswordScreen = () => {
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <View>
                 <TextInput
+                  keyboardType="email-address"
                   error={Boolean(error)}
                   label={t("Email")}
                   value={value}
