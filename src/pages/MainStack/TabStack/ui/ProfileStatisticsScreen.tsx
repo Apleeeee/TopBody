@@ -1,19 +1,16 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 
 import { SafeAreaView, StyleSheet, Text, useTheme } from "shared/ui";
 
 const ProfileStatisticsScreen = () => {
   const theme = useTheme();
 
-  const { t } = useTranslation();
-
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
       <Text variant="displayLarge" style={styles.title}>
-        {t("Statistics")}
+        TopBody2
       </Text>
     </SafeAreaView>
   );

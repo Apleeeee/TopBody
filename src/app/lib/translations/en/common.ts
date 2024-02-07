@@ -54,7 +54,7 @@ export default {
   "Send reset link": "Send reset link",
   "Back to sign in": "Back to sign in",
 
-  /*Страница TAB*/
+  /*Страница главная*/
   Search: "Search",
   Statistics: "Statistics",
   Profile: "Profile",
@@ -63,14 +63,4 @@ export default {
   Height: "Height",
   Weight: "Weight",
   "Apply changes": "Apply changes",
-
-  /* Страница главная*/
-  Base: "Base",
-  Breast: "Breast",
-  "Chest muscle development training": "Chest muscle development training",
-  Begin: "Begin",
-  Back: "Back",
-  "Back muscle development training": "Back muscle development training",
-  Hips: "Hips",
-  "Thigh muscle development training": "Thigh muscle development training",
 } as const;
