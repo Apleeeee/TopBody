@@ -46,15 +46,14 @@ const MyProfileScreen = () => {
 
   const user = useSelector(selectUser);
 
-  const { control, watch, handleSubmit } = useForm<ValidationSchema>({
+  const { control, handleSubmit } = useForm<ValidationSchema>({
     resolver: zodResolver(getSchema(t)),
     defaultValues: {
       height: user?.height,
       weight: user?.weight,
     },
   });
-  const formValues = watch();
-  console.log(formValues, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
   const onSubmit = handleSubmit((data) => {
     dispatch(
       updateUser({
@@ -70,7 +69,7 @@ const MyProfileScreen = () => {
       style={[styles.container, { backgroundColor: theme.colors.background }]}
     >
       <KeyboardAwareScrollView>
-        <View style={styles.profile}>
+        <View>
           <Card.Title
             title={t("Email")}
             subtitle={user?.email}
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
     padding: 15,
     justifyContent: "space-between",
   },
-  profile: {},
 });
 
 export default MyProfileScreen;
