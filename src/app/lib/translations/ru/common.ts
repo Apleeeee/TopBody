@@ -54,7 +54,7 @@ export default {
   "Send reset link": "Отправить ссылку для сброса",
   "Back to sign in": "Вернуться для входа в систему",
 
-  /*Страница главная*/
+  /*Страница TAB*/
   Search: "Поиск",
   Statistics: "Статистика",
   Profile: "Профиль",
@@ -63,4 +63,14 @@ export default {
   Height: "Рост",
   Weight: "Вес",
   "Apply changes": "Применить изменения",
+
+  /* Страница главная*/
+  Base: "База",
+  Breast: "Грудь",
+  "Chest muscle development training": "Тренировка развития мышц груди",
+  Begin: "Начать",
+  Back: "Спина",
+  "Back muscle development training": "Тренировка развития мышц спины",
+  Hips: "Бёдра",
+  "Thigh muscle development training": "Тренировка развития мышц бёдер",
 } as const;
